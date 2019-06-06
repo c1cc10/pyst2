@@ -678,7 +678,35 @@ class Manager(object):
         response = self.send_action(cdict)
         return response
 
+    def dbdel(self, family, key):
+        cdict = {'Action': 'DBDel'}
+        cdict['Family'] = family
+        cdict['Key'] = key
+        response = self.send_action(cdict)
+        return response
 
+    def dbdeltree(self, family, key):
+        cdict = {'Action': 'DBDelTree'}
+        cdict['Family'] = family
+        cdict['Key'] = key
+        response = self.send_action(cdict)
+        return response
+
+    def dbget(self, family, key):
+        cdict = {'Action': 'DBGet'}
+        cdict['Family'] = family
+        cdict['Key'] = key
+        response = self.send_action(cdict)
+        return response
+
+    def dbput(self, family, key, val):
+        cdict = {'Action': 'DBPut'}
+        cdict['Family'] = family
+        cdict['Key'] = key
+        cdict['Val'] = val
+        response = self.send_action(cdict)
+        return response
+        
 class ManagerException(Exception):
     pass
 
